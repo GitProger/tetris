@@ -374,53 +374,7 @@ int CheckLine() {  /* returns amount of deleted lines */
      }
      return lines;
 }
-/*
-void Draw() { /* draw map, figure, border, next figure, scores * /
-     int x, y;
-     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-     SetConsoleTextAttribute(h, BACKGROUND_BLUE | BACKGROUND_RED | BACKGROUND_GREEN);
-     system("cls");
-  /* = scores =* /
-     if (gethighscore() < score) setscr(score);
-     printf("Score: %d\nHigh score: %d\nLines: %d", score, gethighscore(), lines);
-  /* = scores =* /
-     SetConsoleTextAttribute(h, 0);
-  /* = draw map = * /
-     for (y = 0; y < 20; y++) {
-         for (x = 0; x < 10; x++) {
-              square(10 + x, y, map[x][y]);
-         }
-     } 
-  /* = draw map = * /
-  /* = draw figure = * /
-     for (y = CurFigY; y < CurFigY + 4; y++) {
-         for (x = CurFigX; x < CurFigX + 4; x++) {
-             if (figure[x - CurFigX][y - CurFigY]) /* if ceil in figure is black that means that it is clear ceil * /
-                 square(10 + x, y, CurFigType);
-         }
-     }
-  /* = draw figure = * /
-  /* = next figure = * /
-     SetConsoleTextAttribute(h, 0);
-     for (y = 0; y < 4; y++) {
-         for (x = 0; x < 4; x++) {
-              square(x + 1, y + 4, NextFigType * (int)_next_fig[x][y]);
-         }
-     }
-  /* = next figure = * /
-  /* = draw border = * /
-     SetConsoleTextAttribute(h, BACKGROUND_BLUE | BACKGROUND_RED | BACKGROUND_GREEN);
-     for (y = 0; y < 20; y++) {
-         setpos(19, y); putchar('|');
-         setpos(40, y); putchar('|');
-     }
-     setpos(19, 20); 
-     for (x = 0; x < 22; x++) putchar('-');
-     SetConsoleTextAttribute(h, FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
- /* = draw border = * /
-} */
 
-/* the new variant */
 void Draw() { /* draw map, figure, border, next figure, scores */
      int x, y;
      HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
