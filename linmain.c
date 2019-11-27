@@ -168,11 +168,15 @@ void Rotate() { /* rotate current figure */
  /* = corner? = */
      for (x = 0; x < 4; x++) {
          for (y = 0; y < 4; y++) {
-             if (buffer[x][y] && (CurFigX + x > 9 || CurFigY + y > 19))
+             if (buffer[x][y] && 
+                     (CurFigX + x > 9  || CurFigX + x < 0) ||
+                     (CurFigY + y > 19 || CurFigY + y < 0)
+             )
                  return;
          }
      }
- /* = ======= = */
+    
+    /* = ======= = */
      for (x = 0; x < 4; x++)
          for (y = 0; y < 4; y++)
              figure[x][y] = buffer[x][y];
